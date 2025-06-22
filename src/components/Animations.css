@@ -1,0 +1,203 @@
+/* Custom animations for the skill tree */
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.8), 0 0 40px rgba(59, 130, 246, 0.3);
+  }
+}
+
+@keyframes skill-unlock {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes achievement-pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes xp-gain {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes progress-fill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: var(--target-width);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Utility classes */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-skill-unlock {
+  animation: skill-unlock 0.8s ease-out forwards;
+}
+
+.animate-achievement-pop {
+  animation: achievement-pop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.animate-xp-gain {
+  animation: xp-gain 1s ease-out forwards;
+}
+
+.animate-progress-fill {
+  animation: progress-fill 1s ease-out forwards;
+}
+
+.animate-sparkle {
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+/* Hover effects */
+.skill-node-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-node-hover:hover {
+  transform: translateY(-4px) scale(1.02);
+  filter: brightness(1.1);
+}
+
+.exercise-hover {
+  transition: all 0.2s ease-out;
+}
+
+.exercise-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Loading states */
+.loading-shimmer {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Skill completion celebration */
+.celebration-confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #fbbf24;
+  animation: confetti-fall 3s linear infinite;
+}
+
+.celebration-confetti:nth-child(1) { background: #ef4444; animation-delay: 0s; left: 10%; }
+.celebration-confetti:nth-child(2) { background: #3b82f6; animation-delay: 0.5s; left: 20%; }
+.celebration-confetti:nth-child(3) { background: #10b981; animation-delay: 1s; left: 30%; }
+.celebration-confetti:nth-child(4) { background: #8b5cf6; animation-delay: 1.5s; left: 40%; }
+.celebration-confetti:nth-child(5) { background: #f59e0b; animation-delay: 2s; left: 50%; }
+.celebration-confetti:nth-child(6) { background: #ec4899; animation-delay: 2.5s; left: 60%; }
+.celebration-confetti:nth-child(7) { background: #06b6d4; animation-delay: 3s; left: 70%; }
+.celebration-confetti:nth-child(8) { background: #84cc16; animation-delay: 3.5s; left: 80%; }
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .skill-node-hover:hover {
+    transform: none;
+  }
+  
+  .exercise-hover:hover {
+    transform: none;
+  }
+}

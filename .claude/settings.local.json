@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(npm start)",
+      "Bash(npm run build:*)",
+      "Bash(npx tsc:*)",
+      "Bash(rm:*)",
+      "Bash(pkill:*)",
+      "Bash(true)",
+      "Bash(ss:*)",
+      "Bash(curl:*)",
+      "Bash(npx react-scripts build:*)",
+      "Bash(cat:*)",
+      "Bash(npm run lint)",
+      "Bash(npm run:*)",
+      "Bash(timeout:*)"
+    ],
+    "deny": []
+  }
+}
